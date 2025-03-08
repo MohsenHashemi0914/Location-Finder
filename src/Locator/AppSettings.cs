@@ -4,7 +4,17 @@ public sealed class AppSettings
 {
     public required string BaseUrl { get; set; }
     public required MongoDbOptions MongoDbConfigurations { get; set; }
+    public required BrokerOptions BrokerConfiguration { get; init; }
     public required LocationFeatures Features { get; set; }
+
+    public sealed class BrokerOptions
+    {
+        public const string SectionName = "BrokerConfiguration";
+
+        public required string Host { get; init; }
+        public required string UserName { get; init; }
+        public required string Password { get; init; }
+    }
 
     public sealed class LocationFeatures
     {

@@ -1,11 +1,13 @@
 using Locator;
+using Locator.Features.Common;
 using Locator.Features.IpLocation;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddIpLocationFeature();
-builder.Services.Configure<AppSettings>(builder.Configuration);
+builder.ConfigureBroker();
+builder.ConfigureAppSettings();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
